@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
 				redirect_to new_session_path, :notice => "Invalid username or password"
 			else
 				session[:user_id] = @user.id
-				redirect_to new_session_path, :notice => "Hello!"
+				@status = Status.new
+				@statuses = Status.where(user_id: @user.id)
+				render "home/new", collection: @status, :notice => "Hello"
 			end 
 	end
 end
