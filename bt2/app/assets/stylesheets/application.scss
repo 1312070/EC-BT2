@@ -14,3 +14,43 @@
  * It is generally better to create a new file per style scope.
  *= require rails_bootstrap_forms
  */
+#status_list{
+ 	margin: 0px;
+ 	padding: 0px;
+ }
+ #status_list li {
+ 	list-style: none;
+ 	padding: 10px 0px;
+ 	background-color: #fff;
+ 	border-bottom: 1px dashed #D2DADA;
+ 	clear: both;
+ }
+
+ #status_list li.first {
+ 	border-top: 1px dashed #D2DADA;
+ }
+
+  #status_list li:hover {
+ 	background-color: #F7F7F7;
+ 	border-color: #D2DADA;
+ }
+
+#status_list li a {
+	color: #2276bb;
+
+}
+
+.clear{
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+
+#status_list li div.time_ago {
+	color: #9C9C9C;
+	font-size: 0.6em;
+}
+
+#status_list li img {
+	float: left;
+}
