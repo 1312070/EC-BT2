@@ -7,4 +7,11 @@ class HomeController < ApplicationController
 		@statuses = Status.all
 		@comments = Comment.all
 	end
+	def show
+		#@user = User.where(username: params[:username])
+		@user = User.find(params[:id])
+		@statuses = User.all
+
+		@comments = Comment.where(status_id: status)
+	end
 end
