@@ -10,18 +10,7 @@ class User < ApplicationRecord
 		self.name ||= File.basename(avatar.filename, '.*').titleize if avatar
 	end
 
-	def add_friend(friend)
-		friendship = friendships.build(:friend_id => friend)	
-	end
-
-	def remove_friend(friend)
-		#friendship = Friendship.find(:first, :conditions => ["user_id = ? and friend_id = ?", self.id, friend.id])
-		friendship = Friendship.where(user_id: self.id, friend_id: friend.id)
-		if friendship
-			friendship.destroy_all
-		end
-	end
-
+	
 	def is_friend?(friend)
 		return self.friends.include? friend
 	end

@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :statuses
   resources :home
   resources :friendships
+  controller :sessions do
+    delete 'logout' => :destroy
+  end
+  
+  root 'sessions#new'
 end

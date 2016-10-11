@@ -1,4 +1,4 @@
-
+<%= link_to "Log out",logout_path, :method => :delete %>
 <h1>Danh sách User</h1>
 <div id="users">
 <% for user in @users %>
@@ -6,8 +6,8 @@
 		<% for fr in current_user.friends %>
 		<div class= "user">
 			<% if user.id != fr.id %>
-				<% if session[:user_id]!= user.id %>
-					<%=h user.username %>
+				<% if session[:user_id] != user.id %>
+					<%= user.username %>
 					<%= link_to "Add friend", friendships_path(:friend_id => user), :method => :post %>
 				<% end %>
 			<% end %>
@@ -19,7 +19,7 @@
 	<% if current_user.friends.count == 0 %>
 		<div class= "user">
 		<% if session[:user_id]!= user.id %>
-			<%=h user.username %>
+			<%= user.username %>
 			<%= link_to "Add friend", friendships_path(:friend_id => user), :method => :post %>
 		<% end %>
 		<div class="clear"></div>	
