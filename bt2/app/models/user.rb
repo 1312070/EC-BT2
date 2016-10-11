@@ -1,4 +1,17 @@
 class User < ApplicationRecord
+
+	include Gravtastic
+  	gravtastic :size => 50
+	#mount_uploader :avatar, ImageUploader
+	before_create :default_name
+	
+
+	def default_name
+		self.name ||= File.basename(avatar.filename, '.*').titleize if avatar
+	end
+
+
+
 	email_format = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 	#validation:
 	validates :username, :password, :email, :presence => true
@@ -13,4 +26,9 @@ class User < ApplicationRecord
 		return nil if @user.nil?
 		return @user if @user.password == pass
 	end
+
+	has_many :statuses
+
+
+
 end
