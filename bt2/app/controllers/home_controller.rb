@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 	def create
 		current_user = User.find(session[:user_id])
 		#@user = User.where(username: params[:username])
-		@user = User.find_by_username('nphdiem')
+		@user = User.find_by_username(params[:username])
 		if current_user.is_friend? @user
 			#current_user.remove_friend(@user)
 			friendship = Friendship.where(user_id: current_user.id, friend_id: @user.id)

@@ -1,13 +1,11 @@
-
-
 <%= link_to "Log out",logout_path, :method => :delete %>
 <h2><%= image_tag @user.gravatar_url, :align => "top" %> <%= @user.username %></h2>
 <%= form_tag home_index_path do %>
 	<% if current_user.is_friend? @user %>
-		<%= hidden_field_tag :username, :value => @user.username %>
+		<%= hidden_field_tag 'username', @user.username %>
 		<%= submit_tag "Following", :class => "button" %>
 	<% else %>
-		<%= hidden_field_tag :username, :value => @user.username %>
+		<%= hidden_field_tag 'username', @user.username %>
 		<%= submit_tag "Not Following", :class => "button" %>
 	<% end %>
 <% end %>
