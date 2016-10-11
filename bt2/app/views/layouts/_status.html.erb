@@ -12,4 +12,18 @@
 	</div>
 </li>
 <% end %>
+<% for user in current_user.friends %>
+	<% for status in user.statuses %>
+	<li>
+		<%= image_tag status.user.gravatar_url %>
+		
+		<%= link_to user.username, :controller =>"home", :action => "show", :id => user.id , data: {:username => user.username} %>
+		<%= status.content %>
+				
+		<div class= "time_ago">
+			<%= distance_of_time_in_words_to_now(status.created_at) %>ago
+		</div>
+	</li>
+	<% end %>	
+<% end %>
 </ul>
