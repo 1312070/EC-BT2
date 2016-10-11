@@ -43,7 +43,7 @@ Quy trình sử dụng [GIT Workflow](https://www.atlassian.com/git/tutorials/co
 * [ ] Git với Centralize Workflow (chỉ có duy nhất nhánh master)
 * [ ] Git theo Feature Branch Workflow (mỗi chức năng sẽ được làm trên 1 nhánh riêng)
 * [x] Git theo Gitflow Workflow (Có các nhánh develop, master, test,...)
-* [ ] Có sử dụng tag, pull requests
+* [x] Có sử dụng tag, pull requests
 
 
 ## Video Walkthrough
