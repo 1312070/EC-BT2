@@ -16,7 +16,11 @@ Danh sách chức năng **bắt buộc**:
 * [x] Ở trang home, người dùng có thể xem trạng thái của bạn bè và những người đang được người đó follow. Cần thể hiện đầy đủ thông tin của trạng thái như hình ảnh, avatar,...
 * [ ] Người dùng có thể tìm kiếm người dùng khác
 * [x] Người dùng có thể follow người dùng khác
+<<<<<<< HEAD
 * [x] Người dùng có thể thêm comment vào các bài đăng.
+=======
+* [ ] Người dùng có thể thêm comment vào các bài đăng.
+>>>>>>> c03b0210daca7c97eafe715fb3edcb2ae9f5e508
 * [ ] Người dùng có thể đăng nhập bằng Twitter qua OAuth(Sử dụng Omniauth Twitter)
 * [ ] Sử dụng Twitter API để cho phép tạo tweet lên Twitter của người dùng khi đăng trạng thái thành công (Sử dụng [Twitter Gem](https://github.com/sferik/twitter) và [đăng ký Application Token](https://apps.twitter.com))
 * [x] Cần thể hiện số ký tự còn lại khi gõ (Twitter cho phép gõ trạng thái tối đa 140 ký tự)
@@ -42,8 +46,13 @@ Danh sách chức năng **thêm** đã làm nhưng chưa được liệt kê ở
 Quy trình sử dụng [GIT Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/)
 * [ ] Git với Centralize Workflow (chỉ có duy nhất nhánh master)
 * [ ] Git theo Feature Branch Workflow (mỗi chức năng sẽ được làm trên 1 nhánh riêng)
+<<<<<<< HEAD
 * [x] Git theo Gitflow Workflow (Có các nhánh develop, master, test,...)
 * [ ] Có sử dụng tag, pull requests
+=======
+* [ ] Git theo Gitflow Workflow (Có các nhánh develop, master, test,...)
+* [x] Có sử dụng tag, pull requests
+>>>>>>> c03b0210daca7c97eafe715fb3edcb2ae9f5e508
 
 ## Video Walkthrough
 
