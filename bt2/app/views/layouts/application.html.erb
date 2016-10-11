@@ -9,6 +9,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <div id= "notice"><%= flash[:notice] %></div>
+    <% end %>
+    
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="nav navbar-nav">
+          <a class="nav-item nav-link active" href="/sessions">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="/">My page</a>
+        </div>
+    </nav>
+      <div class="container">
+        <div class= "row">
+          <div class="col-sm-8">
+          <%= yield %>
+          </div>
+        <div class="col-sm-4">
+          <div class="sidebar">
+          <h3>My nav bar</h3>
+             
+          </div>
+        </div>
+    </div>
   </body>
 </html>
