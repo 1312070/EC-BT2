@@ -1,0 +1,8 @@
+<%= bootstrap_form_for Status.new do |f| %>
+	<%= f.hidden_field :user_id, :value => session[:user_id] %>
+	<%= f.text_area :content %>
+	<h4 id="count" style= "font-size: 15px">140</h4>
+	<%= f.submit "Đăng" %>
+<% end %>
+
+<%= render 'layouts/status' %>

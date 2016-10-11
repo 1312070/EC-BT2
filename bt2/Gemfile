@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -30,6 +30,8 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'bootstrap_form'
 
 gem 'rails-assets-tether', '>= 1.1.0'
+
+gem 'gravtastic'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
