@@ -9,6 +9,7 @@ class User < ApplicationRecord
 	def default_name
 		self.name ||= File.basename(avatar.filename, '.*').titleize if avatar
 	end
+
 	
 	def is_friend?(friend)
 		return self.friends.include? friend
