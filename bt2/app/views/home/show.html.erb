@@ -1,0 +1,10 @@
+<%= link_to "Log out",logout_path, :method => :delete %>
+<h2><%= image_tag @user.gravatar_url, :align => "top" %> <%= @user.username %></h2>
+<%= form_tag home_index_path do %>
+	<% if current_user.is_friend? @user %>
+		<%= submit_tag "Following", :class => "button" %>
+	<% else %>
+		<%= submit_tag "Not Following", :class => "button" %>
+	<% end %>
+<% end %>
+<%= render 'layouts/status' %>
