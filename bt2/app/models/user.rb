@@ -6,4 +6,11 @@ class User < ApplicationRecord
 	validates :username, :uniqueness => {:message => "username already taken"}
 	validates :password, :length => {:minimum => 5}
 	validates :email, :uniqueness => {:message => "email already taken"}
+
+	def self.authenticate(username, pass)
+		@user = find_by_username(username)
+		
+		return nil if @user.nil?
+		return @user if @user.password == pass
+	end
 end
