@@ -5,11 +5,59 @@
 	<%= image_tag current_user.gravatar_url %>
 	
 		<%= link_to current_user.username, :controller =>"home", :action => "show", :id => current_user.id , data: {:username => current_user.username} %>
-		<%= status.content %>
+		<%= markdown(status.content) %>
 	
 	<div class= "time_ago">
 			<%= distance_of_time_in_words_to_now(status.created_at) %>ago
 	</div>
+	<%= bootstrap_form_for ([status, status.comments.build]) do |f| %>
+		<%= f.text_field :ccontent %>
+		<%= f.hidden_field :status_id, :value => status.id %>
+		<%= f.submit %>
+	<% end %>
+	<div class="comment_layout">
+	<% if status.comments.count != 0 %>
+		<% status.comments.each do |comment| %>
+		<% if comment.ccontent != nil %>
+			<%= image_tag current_user.gravatar_url(:size => 25) %>
+			<%= link_to current_user.username %>
+			<p><%= markdown(comment.ccontent) %> </p>
+		<% end %>
+		<% end %>
+	<% end %>
+	</div>
 </li>
 <% end %>
+<% for user in current_user.friends %>
+	<% for status in user.statuses %>
+	<li>
+		<%= image_tag status.user.gravatar_url %>
+		
+		<%= link_to user.username, :controller =>"home", :action => "show", :id => user.id , data: {:username => user.username} %>
+		<%= markdown(status.content) %>
+				
+		<div class= "time_ago">
+			<%= distance_of_time_in_words_to_now(status.created_at) %>ago
+		</div>
+		<%= bootstrap_form_for ([status, status.comments.build]) do |f| %>
+			<%= f.text_field :ccontent %>
+			<%= f.hidden_field :id, :value => status.id %>
+			<%= f.submit %>	
+		<% end %>
+		<div class="comment_layout">
+		<% if status.comments.count != 0 %>
+			<% status.comments.each do |comment| %>
+				<% if comment.ccontent != nil %>
+					<%= image_tag current_user.gravatar_url(:size => 25) %>
+					<%= link_to current_user.username %>
+					<p><%= markdown(comment.ccontent) %> </p>
+				<% end %>
+			<% end %>
+		<% end %>
+		</div>
+	</li>
+	<% end %>	
+<% end %>
 </ul>
+
+

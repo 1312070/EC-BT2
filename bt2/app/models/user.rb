@@ -10,6 +10,10 @@ class User < ApplicationRecord
 		self.name ||= File.basename(avatar.filename, '.*').titleize if avatar
 	end
 
+	
+	def is_friend?(friend)
+		return self.friends.include? friend
+	end
 
 
 	email_format = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
@@ -28,7 +32,9 @@ class User < ApplicationRecord
 	end
 
 	has_many :statuses
-
-
+	has_many :friendships
+	has_many :friends, :through => :friendships
+	has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+	has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
 end

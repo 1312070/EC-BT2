@@ -17,4 +17,8 @@ class SessionsController < ApplicationController
 				render "home/new", collection: @status, :notice => "Hello"
 			end 
 	end
+	def destroy
+		session[:user_id] = nil
+		redirect_to new_session_path
+	end
 end

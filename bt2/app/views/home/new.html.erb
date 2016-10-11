@@ -1,3 +1,15 @@
+<script type= "text/javascript">
+$(function(){
+	$('#status_content').keydown(function(){
+		var content_length = $(this).val().length;
+		var remaining = 140 - content_length
+		$('#count').html(remaining)
+	})
+})
+</script>
+
+<p><%= link_to "Add friend", users_path %></p>
+<%= link_to "Log out",logout_path, :method => :delete %>
 <%= bootstrap_form_for Status.new do |f| %>
 	<%= f.hidden_field :user_id, :value => session[:user_id] %>
 	<%= f.text_area :content %>
